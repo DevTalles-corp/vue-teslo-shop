@@ -16,10 +16,12 @@
   "dependencies": {
     "@tanstack/vue-query": "^5.32.0",
     "@tanstack/vue-query-devtools": "^5.32.0",
+    "@vueuse/core": "^10.9.0",
     "axios": "^1.6.8",
     "pinia": "^2.1.7",
     "vue": "^3.4.21",
-    "vue-router": "^4.3.0"
+    "vue-router": "^4.3.0",
+    "vue-toastification": "^2.0.0-rc.5"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.8.0",
