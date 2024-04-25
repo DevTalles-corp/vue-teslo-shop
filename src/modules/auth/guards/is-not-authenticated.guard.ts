@@ -12,7 +12,7 @@ const isNotAuthenticatedGuard = async (
   // console.log(to);
   await authStore.checkAuthStatus();
 
-  authStore.authStatus === AuthStatus.Unauthenticated ? next({ name: 'home' }) : next();
+  authStore.authStatus === AuthStatus.Authenticated ? next({ name: 'home' }) : next();
 };
 
 export default isNotAuthenticatedGuard;
