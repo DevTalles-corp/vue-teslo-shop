@@ -1,7 +1,7 @@
 import { ref, computed } from 'vue';
 import { defineStore } from 'pinia';
 import { AuthStatus, type User } from '../interfaces';
-import { loginAction } from '../actions';
+import { checkAuthAction, loginAction, registerAction } from '../actions';
 import { useLocalStorage } from '@vueuse/core';
 
 export const useAuthStore = defineStore('auth', () => {
@@ -27,11 +27,49 @@ export const useAuthStore = defineStore('auth', () => {
     }
   };
 
+  const register = async (fullName: string, email: string, password: string) => {
+    try {
+      const registerResp = await registerAction(fullName, email, password);
+
+      if (!registerResp.ok) {
+        logout();
+        return { ok: false, message: registerResp.message };
+      }
+
+      user.value = registerResp.user;
+      token.value = registerResp.token;
+      authStatus.value = AuthStatus.Authenticated;
+
+      return { ok: true, message: '' };
+    } catch (error) {
+      return { ok: false, message: 'Error al registrar el usuario' };
+    }
+  };
+
   const logout = () => {
     authStatus.value = AuthStatus.Unauthenticated;
     user.value = undefined;
     token.value = '';
     return false;
+  };
+
+  const checkAuthStatus = async (): Promise<boolean> => {
+    try {
+      const statusResp = await checkAuthAction();
+
+      if (!statusResp.ok) {
+        logout();
+        return false;
+      }
+
+      authStatus.value = AuthStatus.Authenticated;
+      user.value = statusResp.user;
+      token.value = statusResp.token;
+      return true;
+    } catch (error) {
+      logout();
+      return false;
+    }
   };
 
   return {
@@ -49,5 +87,7 @@ export const useAuthStore = defineStore('auth', () => {
 
     // Actions
     login,
+    register,
+    checkAuthStatus,
   };
 });
