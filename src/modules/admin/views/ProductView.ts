@@ -9,7 +9,7 @@ import CustomInput from '@/modules/common/components/CustomInput.vue';
 import CustomTextArea from '@/modules/common/components/CustomTextArea.vue';
 
 const validationSchema = yup.object({
-  title: yup.string().required().min(3),
+  title: yup.string().required('Este campo es super importante').min(3, 'Mínimo de 3 letras!!!'),
   slug: yup.string().required(),
   description: yup.string().required(),
   price: yup.number().required(),

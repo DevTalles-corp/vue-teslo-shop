@@ -6,6 +6,7 @@ import { VueQueryPlugin } from '@tanstack/vue-query';
 
 import Toast from 'vue-toastification';
 import 'vue-toastification/dist/index.css';
+import './config/yup';
 
 import App from './App.vue';
 import router from './router';
