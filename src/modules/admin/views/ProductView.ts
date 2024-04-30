@@ -1,7 +1,15 @@
 import { getProductById } from '@/modules/products/actions';
+import type { Product } from '@/modules/products/interfaces/product.interface';
 import { useQuery } from '@tanstack/vue-query';
 import { defineComponent, watchEffect } from 'vue';
 import { useRouter } from 'vue-router';
+
+// const validationSchema = {
+//   ...
+//   ..
+//   ..
+//   ...
+// }
 
 export default defineComponent({
   props: {
@@ -26,6 +34,7 @@ export default defineComponent({
     watchEffect(() => {
       if (isError.value && !isLoading.value) {
         router.replace('/admin/products');
+        return;
       }
     });
 
