@@ -48,9 +48,9 @@ export default defineComponent({
       retry: false,
     });
 
-    const { values, defineField, errors, handleSubmit, resetForm } = useForm({
+    const { values, defineField, errors, handleSubmit, resetForm, meta } = useForm({
       validationSchema,
-      initialValues: product.value,
+      // initialValues: product.value,
     });
 
     const [title, titleAttrs] = defineField('title');
@@ -104,6 +104,7 @@ export default defineComponent({
       // Properties
       values,
       errors,
+      meta,
 
       title,
       titleAttrs,
@@ -127,6 +128,11 @@ export default defineComponent({
       // Actions
       onSubmit,
       toggleSize,
+
+      hasSize: (size: string) => {
+        const currentSizes = sizes.value.map((s) => s.value);
+        return currentSizes.includes(size);
+      },
     };
   },
 });
