@@ -142,6 +142,7 @@ export default defineComponent({
       resetForm({
         values: updatedProduct.value,
       });
+      imageFiles.value = [];
     });
 
     watch(
