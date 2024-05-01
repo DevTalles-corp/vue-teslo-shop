@@ -1,4 +1,4 @@
-import { defineComponent, watch, watchEffect } from 'vue';
+import { defineComponent, ref, watch, watchEffect } from 'vue';
 import { useRouter } from 'vue-router';
 import { useMutation, useQuery } from '@tanstack/vue-query';
 import { useFieldArray, useForm } from 'vee-validate';
@@ -73,12 +73,19 @@ export default defineComponent({
     const [gender, genderAttrs] = defineField('gender');
 
     const { fields: sizes, remove: removeSize, push: pushSize } = useFieldArray<string>('sizes');
+
     const { fields: images } = useFieldArray<string>('images');
+    const imageFiles = ref<File[]>([]);
 
     const onSubmit = handleSubmit(async (values) => {
       // const product = await createUpdateProductAction(value);
       // console.log({ product });
-      mutate(values);
+      const formValues = {
+        ...values,
+        images: [...values.images, ...imageFiles.value],
+      };
+
+      mutate(formValues);
     });
 
     const toggleSize = (size: string) => {
@@ -89,6 +96,18 @@ export default defineComponent({
         removeSize(currentSizes.indexOf(size));
       } else {
         pushSize(size);
+      }
+    };
+
+    const onFileChanged = (event: Event) => {
+      const fileInput = event.target as HTMLInputElement;
+      const fileList = fileInput.files;
+
+      if (!fileList) return;
+      if (fileList.length === 0) return;
+
+      for (const imageFile of fileList) {
+        imageFiles.value.push(imageFile);
       }
     };
 
@@ -153,6 +172,8 @@ export default defineComponent({
 
       sizes,
       images,
+      imageFiles,
+      onFileChanged,
 
       isPending,
 
@@ -166,6 +187,9 @@ export default defineComponent({
       hasSize: (size: string) => {
         const currentSizes = sizes.value.map((s) => s.value);
         return currentSizes.includes(size);
+      },
+      temporalImageUrl: (imageFile: File) => {
+        return URL.createObjectURL(imageFile);
       },
     };
   },

@@ -84,12 +84,23 @@
         <div v-for="image of images" :key="image.value" class="flex-shrink-0">
           <img :src="image.value" :alt="title" class="w-[250px] h-[250px] rounded" />
         </div>
+
+        <div v-for="imageFile of imageFiles" :key="imageFile.name" class="flex-shrink-0">
+          <img :src="temporalImageUrl(imageFile)" class="w-[250px] h-[250px] rounded" />
+        </div>
       </div>
       <!-- Upload image -->
       <div class="col-span-2 my-2">
         <label for="image" class="form-label">Subir imagen</label>
 
-        <input multiple type="file" id="image" class="form-control" />
+        <input
+          multiple
+          type="file"
+          id="image"
+          class="form-control"
+          accept="image/*"
+          @change="onFileChanged"
+        />
       </div>
 
       <div class="mb-4">
@@ -115,7 +126,7 @@
       </div>
     </div>
   </form>
-
+  <!-- 
   <div class="grid grid-cols-2 mt-2">
     <pre class="bg-blue-200 p-2">
       {{ JSON.stringify(values, null, 2) }}
@@ -126,7 +137,7 @@
     <pre class="bg-green-200 p-2 col-span-2">
       {{ JSON.stringify(meta, null, 2) }}
     </pre>
-  </div>
+  </div> -->
 </template>
 
 <script src="./ProductView.ts" lang="ts"></script>
