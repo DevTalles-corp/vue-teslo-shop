@@ -8,7 +8,7 @@ export const createUpdateProductAction = async (product: Partial<Product>) => {
   }
 
   // Crear producto
-  throw new Error('No implementado');
+  return await createProduct(product);
 };
 
 const updateProduct = async (product: Partial<Product>) => {
@@ -33,5 +33,29 @@ const updateProduct = async (product: Partial<Product>) => {
   } catch (error) {
     console.log(error);
     throw new Error('Error updating product');
+  }
+};
+
+const createProduct = async (product: Partial<Product>) => {
+  const images: string[] =
+    product.images?.map((image) => {
+      if (image.startsWith('http')) {
+        const imageName = image.split('/').pop();
+        return imageName ? image : '';
+      }
+
+      return image;
+    }) ?? [];
+
+  delete product.id;
+  delete product.user;
+  product.images = images;
+
+  try {
+    const { data } = await tesloApi.post<Product>(`/products`, product);
+    return data;
+  } catch (error) {
+    console.log(error);
+    throw new Error('Error creating product');
   }
 };
