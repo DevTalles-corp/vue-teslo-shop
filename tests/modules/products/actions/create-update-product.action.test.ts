@@ -52,4 +52,33 @@ describe('createUpdateProductAction', () => {
       },
     });
   });
+
+  test('should update a product', async () => {
+    const products = await tesloApi.get<Product[]>('/products');
+    const product = products.data[0];
+    const productId = product.id;
+
+    const updatedProduct = {
+      ...product,
+      title: 'Updated Product',
+      description: 'Updated Description',
+      stock: 10,
+    };
+
+    const resp = await createUpdateProductAction(updatedProduct);
+
+    expect(resp).toEqual({
+      id: productId,
+      title: 'Updated Product',
+      price: 30,
+      description: 'Updated Description',
+      slug: 'scribble_t_logo_onesie',
+      stock: 10,
+      sizes: ['XS', 'S'],
+      gender: 'kid',
+      tags: ['shirt'],
+      user: expect.anything(),
+      images: ['8529387-00-A_1.jpg', '8529387-00-A_0_2000.jpg'],
+    });
+  });
 });
