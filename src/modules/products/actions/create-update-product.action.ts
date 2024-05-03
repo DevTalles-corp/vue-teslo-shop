@@ -50,8 +50,8 @@ const createProduct = async (product: Partial<Product>) => {
   try {
     const { data } = await tesloApi.post<Product>(`/products`, product);
     return data;
-  } catch (error) {
-    console.log(error);
+  } catch (error: any) {
+    console.log(error?.response?.data);
     throw new Error('Error creating product');
   }
 };
