@@ -8,6 +8,9 @@ pnpm-debug.log*
 lerna-debug.log*
 
 .env
+.env.test
+.env.production
+
 
 node_modules
 .DS_Store
