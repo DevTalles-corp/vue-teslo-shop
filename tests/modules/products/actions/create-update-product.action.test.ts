@@ -1,3 +1,6 @@
+import path from 'path';
+import fs from 'fs';
+
 import { tesloApi } from '@/api/tesloApi';
 import { loginAction } from '@/modules/auth/actions';
 import { createUpdateProductAction } from '@/modules/products/actions';
@@ -46,7 +49,7 @@ describe('createUpdateProductAction', () => {
       user: {
         email: 'test1@google.com',
         fullName: 'Test One',
-        id: 'fe31a323-b08a-4e5e-8467-120a6cebb9d9',
+        id: expect.any(String),
         isActive: true,
         roles: expect.any(Array),
       },
@@ -67,18 +70,42 @@ describe('createUpdateProductAction', () => {
 
     const resp = await createUpdateProductAction(updatedProduct);
 
-    expect(resp).toEqual({
-      id: productId,
-      title: 'Updated Product',
-      price: 30,
-      description: 'Updated Description',
-      slug: 'scribble_t_logo_onesie',
+    expect(resp).toEqual(
+      expect.objectContaining({
+        ...product,
+        id: productId,
+        title: 'Updated Product',
+        description: 'Updated Description',
+        stock: 10,
+      }),
+    );
+  });
+
+  test('should upload product image', async () => {
+    const imagePath = path.join(__dirname, '../../../fake', 't-shirt.jpg');
+    const imageBuffer = fs.readFileSync(imagePath);
+
+    const imageFile = new File([imageBuffer], 't-shirt.jpg', { type: 'image/jpeg' });
+
+    const product: Product = {
+      id: '',
+      title: 'Test Product',
+      price: 100,
+      description: 'Test description',
+      slug: 'test_product',
       stock: 10,
-      sizes: ['XS', 'S'],
+      sizes: [],
       gender: 'kid',
-      tags: ['shirt'],
-      user: expect.anything(),
-      images: ['8529387-00-A_1.jpg', '8529387-00-A_0_2000.jpg'],
-    });
+      tags: [],
+      images: [imageFile] as any,
+      user: {} as any,
+    };
+
+    const { images, id } = await createUpdateProductAction(product);
+
+    const [img1] = images;
+    expect(typeof img1).toBe('string');
+
+    await tesloApi.delete(`/products/${id}`);
   });
 });

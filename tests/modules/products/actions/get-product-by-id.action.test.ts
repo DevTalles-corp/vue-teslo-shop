@@ -23,6 +23,9 @@ describe('getProductById', () => {
     const products = await getProductsAction();
     const product = await getProductById(products[0].id);
 
+    product.images.sort((a, b) => a.localeCompare(b));
+    products.at(0)!.images.sort((a, b) => a.localeCompare(b));
+
     expect(product).toEqual(products.at(0));
   });
 

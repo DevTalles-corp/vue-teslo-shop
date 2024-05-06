@@ -1,0 +1,104 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<ProductsView /> > should render with default values 1`] = `
+"<div class="bg-white px-5 py-2 rounded">
+  <h1 class="text-3xl">Productos</h1><!-- component -->
+  <div class="py-8 w-full">
+    <div class="shadow overflow-hidden rounded border-b border-gray-200">
+      <table class="min-w-full bg-white">
+        <thead class="bg-gray-800 text-white">
+          <tr>
+            <th class="w-10 text-left py-3 px-4 uppercase font-semibold text-sm">Imagen</th>
+            <th class="flex-1 text-left py-3 px-4 uppercase font-semibold text-sm">Título</th>
+            <th class="w-28 py-3 px-4 uppercase font-semibold text-sm">Precio</th>
+            <th class="w-60 text-left py-3 px-4 uppercase font-semibold text-sm">Tallas</th>
+          </tr>
+        </thead>
+        <tbody class="text-gray-700">
+          <tr class="bg-gray-100">
+            <td class="text-left py-3 px-4"><img src="1740176-00-A_0_2000.jpg" alt="Men’s Chill Crew Neck Sweatshirt" class="h-10 w-10 object-cover"></td>
+            <td class="text-left py-3 px-4">
+              <router-link-stub to="/admin/products/008ea87d-a16c-4c25-9de3-8a14bae089cd" replace="false" custom="false" ariacurrentvalue="page" class="hover:text-blue-500 hover:underline"></router-link-stub>
+            </td>
+            <td class="text-left py-3 px-4"><span class="bg-blue-200 text-blue-600 py-1 px-3 rounded-full text-xs">75</span></td>
+            <td class="text-left py-3 px-4">XS,S,L,XL,XXL</td>
+          </tr>
+          <tr class="">
+            <td class="text-left py-3 px-4"><img src="8529107-00-A_0_2000.jpg" alt="3D Large Wordmark Pullover Hoodie" class="h-10 w-10 object-cover"></td>
+            <td class="text-left py-3 px-4">
+              <router-link-stub to="/admin/products/00caa867-abf7-4172-879b-2c17c8cad1d6" replace="false" custom="false" ariacurrentvalue="page" class="hover:text-blue-500 hover:underline"></router-link-stub>
+            </td>
+            <td class="text-left py-3 px-4"><span class="bg-blue-200 text-blue-600 py-1 px-3 rounded-full text-xs">70</span></td>
+            <td class="text-left py-3 px-4">XS,S,XL,XXL</td>
+          </tr>
+          <tr class="bg-gray-100">
+            <td class="text-left py-3 px-4"><img src="1506211-00-A_1_2000.jpg" alt="Kids Corp Jacket" class="h-10 w-10 object-cover"></td>
+            <td class="text-left py-3 px-4">
+              <router-link-stub to="/admin/products/02f68a98-208c-4e2c-8ed3-742e07ba7ef7" replace="false" custom="false" ariacurrentvalue="page" class="hover:text-blue-500 hover:underline"></router-link-stub>
+            </td>
+            <td class="text-left py-3 px-4"><span class="bg-blue-200 text-blue-600 py-1 px-3 rounded-full text-xs">30</span></td>
+            <td class="text-left py-3 px-4">XS,S,M</td>
+          </tr>
+          <tr class="">
+            <td class="text-left py-3 px-4"><img src="8764734-00-A_1.jpg" alt="Men's 3D Large Wordmark Tee" class="h-10 w-10 object-cover"></td>
+            <td class="text-left py-3 px-4">
+              <router-link-stub to="/admin/products/081ed246-4a36-43c5-870b-8f687427bf93" replace="false" custom="false" ariacurrentvalue="page" class="hover:text-blue-500 hover:underline"></router-link-stub>
+            </td>
+            <td class="text-left py-3 px-4"><span class="bg-blue-200 text-blue-600 py-1 px-3 rounded-full text-xs">35</span></td>
+            <td class="text-left py-3 px-4">XS,S,M</td>
+          </tr>
+          <tr class="bg-gray-100">
+            <td class="text-left py-3 px-4"><img src="8765090-00-A_0_2000.jpg" alt="Women's T Logo Short Sleeve Scoop Neck Tee" class="h-10 w-10 object-cover"></td>
+            <td class="text-left py-3 px-4">
+              <router-link-stub to="/admin/products/0beeea8d-23c5-4ea0-a1d0-ebb7eb7a2aa5" replace="false" custom="false" ariacurrentvalue="page" class="hover:text-blue-500 hover:underline"></router-link-stub>
+            </td>
+            <td class="text-left py-3 px-4"><span class="bg-blue-200 text-blue-600 py-1 px-3 rounded-full text-xs">35</span></td>
+            <td class="text-left py-3 px-4">XS,S,M,L,XL,XXL</td>
+          </tr>
+          <tr class="">
+            <td class="text-left py-3 px-4"><img src="1740250-00-A_1.jpg" alt="Men's Raven Lightweight Zip Up Bomber Jacket" class="h-10 w-10 object-cover"></td>
+            <td class="text-left py-3 px-4">
+              <router-link-stub to="/admin/products/0c8e0838-e0b6-45e2-9479-b2e882d2331b" replace="false" custom="false" ariacurrentvalue="page" class="hover:text-blue-500 hover:underline"></router-link-stub>
+            </td>
+            <td class="text-left py-3 px-4"><span class="bg-blue-200 text-blue-600 py-1 px-3 rounded-full text-xs">130</span></td>
+            <td class="text-left py-3 px-4">S,M,L,XL,XXL</td>
+          </tr>
+          <tr class="bg-gray-100">
+            <td class="text-left py-3 px-4"><img src="8765120-00-A_0_2000.jpg" alt="Women's Small Wordmark Short Sleeve V-Neck Tee" class="h-10 w-10 object-cover"></td>
+            <td class="text-left py-3 px-4">
+              <router-link-stub to="/admin/products/0df45604-0309-4410-9bc3-9e681d2566a9" replace="false" custom="false" ariacurrentvalue="page" class="hover:text-blue-500 hover:underline"></router-link-stub>
+            </td>
+            <td class="text-left py-3 px-4"><span class="bg-blue-200 text-blue-600 py-1 px-3 rounded-full text-xs">35</span></td>
+            <td class="text-left py-3 px-4">XS,S,M,L,XL,XXL</td>
+          </tr>
+          <tr class="">
+            <td class="text-left py-3 px-4"><img src="8529342-00-A_1.jpg" alt="Kids Cybertruck Tee" class="h-10 w-10 object-cover"></td>
+            <td class="text-left py-3 px-4">
+              <router-link-stub to="/admin/products/1283ce77-2be8-49c1-95ac-0f307108a8bb" replace="false" custom="false" ariacurrentvalue="page" class="hover:text-blue-500 hover:underline"></router-link-stub>
+            </td>
+            <td class="text-left py-3 px-4"><span class="bg-blue-200 text-blue-600 py-1 px-3 rounded-full text-xs">25</span></td>
+            <td class="text-left py-3 px-4">XS,S,M</td>
+          </tr>
+          <tr class="bg-gray-100">
+            <td class="text-left py-3 px-4"><img src="1703767-00-A_1.jpg" alt="Men's Solar Roof Tee" class="h-10 w-10 object-cover"></td>
+            <td class="text-left py-3 px-4">
+              <router-link-stub to="/admin/products/12ad7d60-45b8-49a8-92a4-f4db225f39f6" replace="false" custom="false" ariacurrentvalue="page" class="hover:text-blue-500 hover:underline"></router-link-stub>
+            </td>
+            <td class="text-left py-3 px-4"><span class="bg-blue-200 text-blue-600 py-1 px-3 rounded-full text-xs">35</span></td>
+            <td class="text-left py-3 px-4">S,M,L,XL</td>
+          </tr>
+          <tr class="">
+            <td class="text-left py-3 px-4"><img src="1549275-00-A_1.jpg" alt="Women's Plaid Mode Tee" class="h-10 w-10 object-cover"></td>
+            <td class="text-left py-3 px-4">
+              <router-link-stub to="/admin/products/1560071e-96fe-41bb-ae70-6c6c72774486" replace="false" custom="false" ariacurrentvalue="page" class="hover:text-blue-500 hover:underline"></router-link-stub>
+            </td>
+            <td class="text-left py-3 px-4"><span class="bg-blue-200 text-blue-600 py-1 px-3 rounded-full text-xs">35</span></td>
+            <td class="text-left py-3 px-4">S,M</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <button-pagination-stub page="1" hasmoredata="false"></button-pagination-stub>
+  </div>
+</div>"
+`;
