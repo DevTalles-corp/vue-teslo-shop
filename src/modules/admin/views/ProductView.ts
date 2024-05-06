@@ -78,6 +78,7 @@ export default defineComponent({
     const imageFiles = ref<File[]>([]);
 
     const onSubmit = handleSubmit(async (values) => {
+      console.log('onSubmit Llamado');
       // const product = await createUpdateProductAction(value);
       // console.log({ product });
       const formValues = {
